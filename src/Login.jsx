@@ -2,6 +2,7 @@ import { TextField, Button, Card } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Api } from "./api/global";
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
 
         try {
             const response = await axios.post(
-                "https://skygoal-task.vercel.app/login",
+                `${Api}/login`,
                 userData
             );
             if (response.status === 200) {
@@ -63,7 +64,7 @@ const Login = () => {
                 }}
             >
                 <TextField
-                    id="outlined-basic"
+                    type="email"
                     label="Email"
                     variant="outlined"
                     color="secondary"
@@ -71,7 +72,7 @@ const Login = () => {
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <TextField
-                    id="outlined-basic"
+                    type="password"
                     label="Password"
                     variant="outlined"
                     color="secondary"
@@ -83,7 +84,7 @@ const Login = () => {
                     Login
                 </Button>
                 <p style={{ textAlign: "center", margin: 0, padding: 0 }}>or</p>
-                <Button variant="contained" >Create Account</Button>
+                <Button variant="contained" onClick={() => navigate("/")}>Create Account</Button>
             </Card>
         </div>
     );

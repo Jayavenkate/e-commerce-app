@@ -5,6 +5,7 @@ import { Button, Card } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import { useCart } from "../context/context";
+import { Api } from "../api/global";
 
 const Menu = () => {
     const { cartitem, setCartitem } = useCart();
@@ -28,7 +29,7 @@ const Menu = () => {
     //getmobiledata
 
     const getMobile = () => {
-        fetch("https://skygoal-task.vercel.app/getmobile", {
+        fetch(`${Api}/getmobile`, {
             method: "GET",
             headers: {
                 "x-auth-token": localStorage.getItem("token"),
