@@ -79,9 +79,11 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-                <Button variant="contained" onClick={handleClick}>
+                <Button variant="contained" onClick={handleClick} color="success">
                     Login
                 </Button>
+                <p style={{ textAlign: "center", margin: 0, padding: 0 }}>or</p>
+                <Button variant="contained" >Create Account</Button>
             </Card>
         </div>
     );
